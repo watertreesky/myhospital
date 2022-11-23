@@ -22,3 +22,33 @@ CREATE TABLE chuyen_khoa
     ma_chuyen_khoa char(10) primary key
     ,ten_chuyen_khoa varchar(50)
 );
+
+CREATE TABLE dich_vu
+(
+    ma_dich_vu char(10) primary key
+    ,ten_dich_vu varchar(250) 
+    ,ma_phong char(10) 
+    ,FOREIGN KEY references phong(ma_phong)
+    ,gia_tien float
+);
+
+CREATE TABLE nguoi_benh
+(
+    ma_nguoi_benh int primary key AUTO_INCREMENT
+    ,ten_nguoi_benh varchar(100)
+    ,ngay_sinh date
+    ,dia_chi text
+    ,sdt char(10)
+    ,cmnd_cccd char(12)
+);
+
+CREATE TABLE ho_so
+(
+    ma_ho_so int primary key AUTO_INCREMENT
+    ,ma_nguoi_benh int 
+    ,FOREIGN KEY references nguoi_benh(ma_nguoi_benh)
+    ,ma_dich_vu char(10) 
+    ,FOREIGN KEY references dich_vu(ma_dich_vu)
+    ,so_luong tinyint
+    ,tong_tien float
+);
