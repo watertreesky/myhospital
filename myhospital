@@ -1,0 +1,24 @@
+CREATE DATABASE myhospital;
+USE myhospital;
+
+CREATE TABLE users
+(
+    tai_khoan varchar(20) NOT NULL
+    ,mat_khau varchar(50) NOT NULL
+    ,CONSTRAINT PK_users PRIMARY KEY (tai_khoan,mat_khau)
+    ,ho_ten varchar(100)
+    ,so_dien_thoai char(10)
+    ,cchn char(15)
+);
+
+CREATE TABLE phong
+(
+    ma_phong char(10) primary key
+    ,ten_phong varchar(100)
+);
+
+CREATE TABLE chuyen_khoa
+(
+    ma_chuyen_khoa char(10) primary key
+    ,ten_chuyen_khoa varchar(50)
+);
